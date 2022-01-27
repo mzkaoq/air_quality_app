@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<p>name {{ station_name }}</p>
+<p>average pm10 in last 24h = {{ average24h }}</p>
+<p>average pm10 in last 72h = {{ average72h }}</p>
+<div class="folium-map">{% include "map.html" %}</div>
+<table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>pm10[μg/m^3]</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for prob in station %}
+        <tr>
+            <td>{{ prob[0] }}</td>
+            <td>{{ prob[1] }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}

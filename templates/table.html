@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>x</th>
+        <th>y</th>
+        <th>c_code</th>
+        <th>city</th>
+        <th>voivodeship</th>
+        <th>button</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for prob in station %}
+        <tr>
+            <td>{{ prob.id }}</td>
+            <td>{{ prob.name }}</td>
+            <td>{{ prob.cord_x }}</td>
+            <td>{{ prob.cord_y }}</td>
+            <td>{{ prob.city_code }}</td>
+            <td>{{ prob.city}}</td>
+            <td>{{ prob.voivodeship }}</td>
+            <td>
+                <form action="/table/{{ prob.id }}/" method="post">
+                    <button name="probeBtn" type="submit">more</button>
+                </form>
+            </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

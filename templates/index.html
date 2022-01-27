@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<h1>air quality app</h1>
+<form action="/" method="post">
+    <button name="updateBtn" type="submit" value="submit">update stations</button>
+    <button name="updateBtn" type="submit" value="submit2">update data</button>
+</form>
+<form action="/table/" method="post">
+    <button name="tableBtn" type="submit" value="station">station</button>
+</form>
+<form action="/table2/" method="post">
+    <button name="tableBtn" type="submit" value="probes">probes</button>
+</form>
+<form action="/map24/" method="post">
+    <button name="mapBtn" type="submit">map 24h</button>
+</form>
+<form action="/map72/" method="post">
+    <button name="mapBtn" type="submit">map 72h</button>
+</form>
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+{% endblock %}
